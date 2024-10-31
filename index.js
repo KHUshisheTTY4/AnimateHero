@@ -114,3 +114,31 @@ document.querySelectorAll(".image-layer").forEach((layer) => {
     layer.removeEventListener("mousemove", moveImage); // clean up the event listener
   });
 });
+//initial animation
+window.addEventListener("load", () => {
+  gsap.set(".hero-text div", {
+      y: 50, 
+      opacity: 0, // initially hidden
+      clipPath: "inset(0 0 100% 0)" // slide each line from the bottom up
+  });
+
+  // animate each line to slide up and reveal gradually 
+  gsap.to(".hero-text div", {
+      y: 0, // slide up to normal position
+      opacity: 1, // fade in fully
+      clipPath: "inset(0 0 0% 0)", // unmask the entire line
+      duration: 1.0, // Length of the animation
+      ease: "power2.out", // smooth easing
+     
+  });
+
+  // image animation: fade in each image layer sequentially after text animation
+  gsap.from(".image-layer", {
+      opacity: 0,
+      duration: 1,
+      scale:0.6,
+      ease: "power2.out",
+      stagger: 0.3,
+      delay: 0.5 // delay to start after text animation completes
+  });
+});
