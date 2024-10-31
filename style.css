@@ -1,2 +1,65 @@
+/* Main hero section styling */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
 
-      
+.hero-text {
+  font-size: 8vw;
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  z-index: 2; 
+  transition: color 0.2s ease; /* Smooth transition for color */
+  pointer-events: none; /* Allow pointer events to pass through */
+}
+
+/* Image layer styling */
+.image-layer {
+  position: absolute;
+  width: 25%;
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 0s ease, z-index 0s ease 0.1s; /* Delay z-index change */
+}
+
+.image-layer1 {
+  top: 10%;
+  left: 15%;
+}
+.image-layer2 {
+  top: 10%;
+  right: 15%;
+}
+.image-layer3 {
+  bottom: 10%;
+  left: 20%;
+}
+.image-layer4 {
+  bottom: 10%;
+  right: 20%;
+}
+
+
+/* Subtext overlay on image hover */
+.overlay-content {
+  position: absolute;
+  bottom: -40px; /* Place it just below the image */
+  left: 90%;
+  transform: translateX(-50%);
+  background: transparent; /* Remove background color */
+  color: white;
+  font-size: 2.5vw; /* Larger font size */
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-weight: 900; /* Bold font */
+  text-transform: uppercase;
+}
